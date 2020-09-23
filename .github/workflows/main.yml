@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  doc_widget:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        package:
+          - packages/doc_widget
+          - packages/doc_widget_annotation
+          - packages/doc_widget_builder
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: stable
+
+      - name: Install all dependencies
+        run: flutter pub get
+        working-directory: ${{ matrix.package }}
+
+      - name: Flutter Analyze
+        run: flutter analyze
+        working-directory: ${{ matrix.package }}
+
+      - name: Flutter test
+        run: flutter pub run test
+        working-directory: ${{ matrix.package }}
+        if: ${{ matrix.package == 'packages/doc_widget_builder' }}
+
+      - name: Flutter Format
+        run: flutter format --set-exit-if-changed .
+        working-directory: ${{ matrix.package }}
