@@ -1,6 +1,6 @@
 # Doc Widget
 
-![CI](https://github.com/isacjunior/doc_widget/workflows/CI/badge.svg)
+![Build](https://github.com/isacjunior/doc_widget/workflows/Build/badge.svg)
 
 Do you need to create documentation that contains all information about your widgets? Don't worry, *Doc Widget* will make this easier for you.
 

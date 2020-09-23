@@ -11,9 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  doc_widget_annotation: 
-  # Use doc_widget instead doc_widget_annotation
-    path: ../../doc_widget_annotation 
+  doc_widget_annotation: ^0.1.0
 
 dev_dependencies:
   flutter_test:

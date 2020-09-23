@@ -67,10 +67,10 @@ packages:
   doc_widget_annotation:
     dependency: "direct main"
     description:
-      path: "../doc_widget_annotation"
-      relative: true
-    source: path
-    version: "0.1.1"
+      name: doc_widget_annotation
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   fake_async:
     dependency: transitive
     description:
