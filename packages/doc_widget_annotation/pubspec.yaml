@@ -1,0 +1,7 @@
+name: doc_widget_annotation
+description: This is a simple package that contains annotations to generate code in doc_widget
+version: 0.1.1
+homepage: https://github.com/isacjunior/doc_widget
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
