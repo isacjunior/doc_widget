@@ -13,3 +13,7 @@
 ## [0.1.3] - Fix documentation
 
 * Fix some information about how to use doc_widget.
+
+## [0.1.4] - Fix name property
+
+* Show property name only if is named

@@ -81,7 +81,7 @@ The code generator will contain all information about your parameters.
 
 | Name | Description |
 | --- | --- |
-| Name | Name of the parameter |
+| Name | Name of the parameter if is named |
 | Type | Type of the parameter |
 | Required | Whether your parameter is required or not |
 | Default value | If has default value, this will show |
@@ -181,7 +181,7 @@ We recommend create a file `lib/doc_widget.dart` like a example below.
 void main() {
 
   final titleItem = ElementPreview(
-    document: TitleDoc(), // From generated file
+    document: TitleDocWidget(), // From generated file
     previews: [
       WidgetPreview( // This will show your widget and a description about.
           widget: Title(title: 'Amazing'),

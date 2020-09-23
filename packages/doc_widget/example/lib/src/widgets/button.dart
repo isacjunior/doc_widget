@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:doc_widget/doc_widget.dart';
 
 /// ```dart
-/// final button = ButtoniOS('Button');
+/// final button = Button('Button');
 /// ```
 @docWidget
 class Button extends StatelessWidget {
