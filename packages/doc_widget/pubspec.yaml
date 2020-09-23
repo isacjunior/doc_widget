@@ -1,8 +1,7 @@
-name: example
-description: A new Flutter package project.
-version: 0.0.1
-author:
-homepage:
+name: doc_widget
+description: An easier way that documents your widgets.
+version: 0.1.0
+homepage: https://github.com/isacjunior/doc_widget
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -11,16 +10,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  doc_widget_annotation: 
-  # Use doc_widget instead doc_widget_annotation
-    path: ../../doc_widget_annotation 
+  doc_widget_annotation:
+    path: ../doc_widget_annotation
+  google_fonts: ^1.1.0
+  flutter_highlight: ^0.6.0
+  cupertino_icons: ^0.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  doc_widget:
-    path: ../../doc_widget
-  build_runner: ^1.10.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

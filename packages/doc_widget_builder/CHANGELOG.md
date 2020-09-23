@@ -1,3 +1,3 @@
-## [0.1.0] - Create beta version
+## [0.1.0] - Create package
 
-* Initial beta version.
+* Initial version.
