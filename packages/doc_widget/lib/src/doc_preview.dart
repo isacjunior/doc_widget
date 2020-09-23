@@ -2,6 +2,7 @@ import 'package:doc_widget/doc_widget.dart';
 import 'package:doc_widget/src/styles/colors.dart';
 import 'package:doc_widget/src/styles/spaces.dart';
 import 'package:doc_widget/src/widgets/item.dart';
+import 'package:doc_widget/src/widgets/title.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -53,9 +54,9 @@ class _DocPreviewState extends State<DocPreview> {
               children: <Widget>[
                 Container(
                   height: 110,
-                  child: const DrawerHeader(
-                    child: Text('Doc Widget'),
-                    decoration: BoxDecoration(
+                  child: DrawerHeader(
+                    child: TextPreview(text: 'Doc Widget'),
+                    decoration: const BoxDecoration(
                       color: ColorsDoc.white,
                     ),
                   ),
