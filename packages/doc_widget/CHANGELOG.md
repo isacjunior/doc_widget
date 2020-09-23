@@ -9,3 +9,7 @@
 ## [0.1.2] - Snippet bug
 
 * Checking if the snippet is not empty to show.
+
+## [0.1.3] - Fix documentation
+
+* Fix some information about how to use doc_widget.
