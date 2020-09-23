@@ -1,0 +1,17 @@
+targets:
+    $default:
+        builders:
+            doc_widget:
+                enabled: true
+                generate_for:
+                    include:
+                        - example/lib/*
+
+builders:
+    doc_widget:
+        import: 'package:doc_widget_builder/doc_widget_builder.dart'
+        builder_factories: ['docWidgetBuilder']
+        build_extensions: { '.dart': ['.doc_widget.dart'] }
+        auto_apply: dependents
+        build_to: source
+        applies_builders: ["source_gen|combining_builder"]

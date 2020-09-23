@@ -6,7 +6,7 @@ import 'package:source_gen/source_gen.dart';
 
 Builder docWidgetBuilder(BuilderOptions options) =>
     LibraryBuilder(DocWidgetGenerator(),
-        generatedExtension: '.doc.dart', header: '''
+        generatedExtension: '.doc_widget.dart', header: '''
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: prefer_single_quotes
     ''');
