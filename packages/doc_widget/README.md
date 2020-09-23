@@ -209,7 +209,7 @@ You use `VSCode`? You can insert `.vscode/launch.json` to automate this job.
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "doc widget app",
+            "name": "doc_widget app",
             "request": "launch",
             "type": "dart",
             "program": "lib/doc_widget.dart",

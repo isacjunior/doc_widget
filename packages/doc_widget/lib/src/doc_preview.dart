@@ -54,7 +54,7 @@ class _DocPreviewState extends State<DocPreview> {
                 Container(
                   height: 110,
                   child: const DrawerHeader(
-                    child: Text('Flutter Doc'),
+                    child: Text('Doc Widget'),
                     decoration: BoxDecoration(
                       color: ColorsDoc.white,
                     ),

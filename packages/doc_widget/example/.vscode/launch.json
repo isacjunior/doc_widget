@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "doc_widget app",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/doc_widget.dart",
+        },
+        {
+            "name": "example app",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+        },
+    ]
+}
