@@ -2,7 +2,7 @@
 
 ![Build](https://github.com/isacjunior/doc_widget/workflows/Build/badge.svg)
 
-Do you need to create documentation that contains all information about your widgets? Don't worry, *Doc Widget* will make this easier for you.
+Do you need to create documentation that contains all information about your widgets? Don't worry, **doc_widget** will make this easier for you.
 
 ## Indice
 - [Quick start](#quick-start)
@@ -34,12 +34,12 @@ flutter pub run build_runner build
 
 ![Doc Widget](https://i.imgur.com/tVnv0Gy.png)
 
-For more details, see [Example](https://github.com/isacjunior/doc_widget/tree/master/packages/doc_widget/example) and see [How to use](#how-to-use).
+For more details, see [Example](https://github.com/isacjunior/doc_widget/tree/master/packages/doc_widget/example) and see [How to use](#how-to-use) for a complete guide.
 
 # How to use
 
 ## Install
-To use *Doc Widget* you need to install `doc_widget`, `doc_widget_builder` and typical build_runner/code-generator setup.
+To use **doc_widget** you need to install `doc_widget`, `doc_widget_builder` and typical build_runner/code-generator setup.
 
 ```yaml
 # pubspec.yaml
@@ -57,7 +57,7 @@ dev_dependencies:
 
 ## How to generate
 
-You will need to annotate your Widget with `doc` annotation and after generate the code with all information about your widget.
+You will need to annotate your Widget with `docWidget` annotation and after generate the code with all information about your widget.
 
 ```dart
 import 'package:doc_widget/doc_widget.dart';
@@ -130,7 +130,7 @@ class Bird extends StatefulWidget {
 
 ## Generated file
 
-The generated code should be similar to this but don't worry about this, all this information will be used and rendered for `doc_widget`. All generated file contains a suffix `Doc` to help you to differentiate of widget. 
+The generated code should be similar to this but don't worry about this, all this information will be used and rendered for `doc_widget`. All generated file contains a suffix `DocWidget` to help you to differentiate of widget. 
 
 - Widget file: `title.dart`
 ```dart
@@ -147,12 +147,12 @@ class Title extends StatelessWidget {
 }
 ```
 
-- Generated file by doc_widget: `title.doc.dart`
+- Generated file by doc_widget: `title.doc_widget.dart`
 
 ```dart
-// title.doc.dart
+// title.doc_widget.dart
 
-class TitleDoc implements Documentation {
+class TitleDocWidget implements Documentation {
   @override
   String get name => 'Title';
   @override
@@ -171,9 +171,9 @@ class TitleDoc implements Documentation {
 
 ## Doc Preview
 
-This is a flutter application that the main responsibility is to read all information generated and show your documentation. This job is manual and you need to insert all generated files in `*.doc`  and insert more details like more previews.
+This is a flutter application that the main responsibility is to read all information generated and show your documentation. This job is manual and you need to insert all generated files in `*.doc_widget.dart`.
 
-We recommend create a file `lib/doc_widget.dart` like a example above.
+We recommend create a file `lib/doc_widget.dart` like a example below.
 
 ```dart
 // lib/doc_widget.dart
