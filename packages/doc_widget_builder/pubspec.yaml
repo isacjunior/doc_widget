@@ -1,6 +1,6 @@
 name: doc_widget_builder
 description: The code generator to generate the documentation for doc_widget package.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/isacjunior/doc_widget
 
 environment:
@@ -16,7 +16,7 @@ dependencies:
   analyzer: ^0.39.11
   code_builder: ^3.4.1
   dart_style: ^1.3.6
-  doc_widget_annotation: ^0.1.0
+  doc_widget_annotation: ^0.1.1
 
 dev_dependencies:
   test: ^1.15.3
