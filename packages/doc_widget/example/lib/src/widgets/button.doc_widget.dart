@@ -23,6 +23,6 @@ class ButtonDocWidget implements Documentation {
         ),
       ];
   @override
-  String get snippet => '''final button = ButtoniOS('Button');
+  String get snippet => '''final button = Button('Button');
 ''';
 }

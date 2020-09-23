@@ -33,7 +33,7 @@ class ItemProperties extends StatelessWidget {
               (index) {
                 final property = documentation.properties[index];
                 return DataRow(cells: [
-                  DataCell(Text(property.name)),
+                  DataCell(Text(property.isNamed ? property.name : '')),
                   DataCell(Text(
                     property.type,
                     style: const TextStyle(color: Color(0xffe45649)),
