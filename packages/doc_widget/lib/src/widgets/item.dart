@@ -15,7 +15,8 @@ class Item extends StatelessWidget {
       children: [
         ItemProperties(element.document),
         ItemPreview(element.previews),
-        ItemSnippet(element.document.snippet),
+        if (element.document.snippet.isNotEmpty)
+          ItemSnippet(element.document.snippet),
       ],
     );
   }
