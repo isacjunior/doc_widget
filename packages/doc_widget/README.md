@@ -1,6 +1,7 @@
 # Doc Widget
 
 ![Build](https://github.com/isacjunior/doc_widget/workflows/Build/badge.svg)
+[![Pub](https://img.shields.io/pub/v/doc_widget)](https://pub.dev/packages/doc_widget)
 
 Do you need to create documentation that contains all information about your widgets? Don't worry, **doc_widget** will make this easier for you.
 
