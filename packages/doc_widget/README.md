@@ -152,9 +152,7 @@ class Bird extends StatefulWidget {
 
 ## Generated file
 
-Don't worry about generated code, all this information will be used and rendered for `doc_widget`. All generated file contains a suffix `DocWidget` to help you to differentiate of widget. 
-
-The only information that you need to know is class name generate, in this case `ButtonDocWidget`.
+Don't worry about generated code, all this information will be used and rendered by `doc_widget`. All generated file contains a suffix `DocWidget` to help you to differentiate of the widget. **The only information that you need to know is the class name, in this case, is `ButtonDocWidget`.**
 
 ```dart
 // button.doc_widget.dart
