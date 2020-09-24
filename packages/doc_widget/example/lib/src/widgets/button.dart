@@ -2,20 +2,28 @@ import 'package:flutter/cupertino.dart';
 import 'package:doc_widget/doc_widget.dart';
 
 /// ```dart
-/// final button = Button('Button');
+/// final button = Button(
+///  'Button',
+///  onPressed: () => print('Doc Widget'),
+/// );
 /// ```
 @docWidget
 class Button extends StatelessWidget {
-  Button(this.text);
+  Button(
+    this.text, {
+    @required this.onPressed,
+    this.color = const Color(0xff007aff),
+  });
 
-  /// String to show in button
   final String text;
+  final void Function() onPressed;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
-      color: const Color(0xff007aff),
-      onPressed: () {},
+      color: color,
+      onPressed: onPressed,
       child: Text(text),
     );
   }

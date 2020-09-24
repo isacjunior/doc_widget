@@ -1,6 +1,6 @@
 name: doc_widget
 description: An easier way that documents your widgets.
-version: 0.1.4
+version: 0.1.5
 homepage: https://github.com/isacjunior/doc_widget
 
 environment:

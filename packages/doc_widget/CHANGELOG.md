@@ -17,3 +17,7 @@
 ## [0.1.4] - Fix name property
 
 * Show property name only if is named
+
+## [0.1.5] - Fix column spacing
+
+* Fix column spacing and update readme

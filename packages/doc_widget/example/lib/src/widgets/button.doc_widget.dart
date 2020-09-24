@@ -19,10 +19,25 @@ class ButtonDocWidget implements Documentation {
           isRequired: true,
           isNamed: false,
           type: 'String',
-          description: 'String to show in button',
+        ),
+        PropertyDoc(
+          name: 'onPressed',
+          isRequired: true,
+          isNamed: true,
+          type: 'void Function()',
+        ),
+        PropertyDoc(
+          name: 'color',
+          isRequired: false,
+          isNamed: true,
+          type: 'Color',
+          defaultValue: 'const Color(0xff007aff)',
         ),
       ];
   @override
-  String get snippet => '''final button = Button('Button');
+  String get snippet => '''final button = Button(
+  'Button',
+  onPressed: () => print('Doc Widget'),
+);
 ''';
 }
