@@ -18,7 +18,7 @@ class ItemProperties extends StatelessWidget {
         children: [
           TextPreview(text: 'Properties'),
           DataTable(
-            columnSpacing: 0,
+            columnSpacing: 16,
             dividerThickness: 0.4,
             horizontalMargin: Spaces.dodgerBlue,
             headingRowHeight: 36,

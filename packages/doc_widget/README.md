@@ -61,11 +61,29 @@ dev_dependencies:
 You will need to annotate your Widget with `docWidget` annotation and after generate the code with all information about your widget.
 
 ```dart
+import 'package:flutter/cupertino.dart';
 import 'package:doc_widget/doc_widget.dart';
 
 @docWidget
 class Button extends StatelessWidget {
-  // ...  
+  Button(
+    this.text, {
+    @required this.onPressed,
+    this.color = const Color(0xff007aff),
+  });
+
+  final String text;
+  final void Function() onPressed;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoButton(
+      color: color,
+      onPressed: onPressed,
+      child: Text(text),
+    );
+  }
 }
 ```
 
@@ -97,10 +115,13 @@ Below has an example of how to document your widget.
 import 'package:doc_widget/doc_widget.dart';
 
 /// ```dart
-/// final title = Title(title: "Amazing");
+/// final button = Button(
+///  'Button',
+///  onPressed: () => print('Doc Widget'),
+/// );
 /// ```
 @docWidget
-class Title extends StatelessWidget {
+class Button extends StatelessWidget {
   // ...
 }
 ```
@@ -131,42 +152,15 @@ class Bird extends StatefulWidget {
 
 ## Generated file
 
-The generated code should be similar to this but don't worry about this, all this information will be used and rendered for `doc_widget`. All generated file contains a suffix `DocWidget` to help you to differentiate of widget. 
+Don't worry about generated code, all this information will be used and rendered by `doc_widget`. All generated files contains a prefix `*.doc_widget.dart`. The generated class contains a suffix `DocWidget` to help you to differentiate of the widget. 
 
-- Widget file: `title.dart`
-```dart
-import 'package:doc_widget/doc_widget.dart';
-
-/// ```dart
-/// final title = Title(title: "Amazing");
-/// ```
-@docWidget
-class Title extends StatelessWidget {
-  Title({ this.title = 'Amazing' });
-
-  final String title;
-}
-```
-
-- Generated file by doc_widget: `title.doc_widget.dart`
+**The only information that you need to know is the class name, in this case, is `ButtonDocWidget`.**
 
 ```dart
-// title.doc_widget.dart
+// button.doc_widget.dart
 
-class TitleDocWidget implements Documentation {
-  @override
-  String get name => 'Title';
-  @override
-  List<PropertyDoc> get properties => [
-        PropertyDoc(
-          name: 'title',
-          isRequired: false,
-          type: 'String',
-          defaultValue: 'Amazing',
-        ),
-      ];
-  @override
-  String get snippet => '''final title = Title(title: 'Amazing');''';
+class ButtonDocWidget implements Documentation {
+  // ...
 }
 ```
 
@@ -181,17 +175,20 @@ We recommend create a file `lib/doc_widget.dart` like a example below.
 
 void main() {
 
-  final titleItem = ElementPreview(
-    document: TitleDocWidget(), // From generated file
+  final button = ElementPreview(
+    document: ButtonDocWidget(), // From generated file
     previews: [
       WidgetPreview( // This will show your widget and a description about.
-          widget: Title(title: 'Amazing'),
-          description: 'With text Amazing',
+        widget: Button(
+          'Button',
+          onPressed: () => print('Hello'),
+        ),
+        description: 'Default button.',
       ),
     ],
   );
 
-  runApp(DocPreview(elements: [titleItem])); // Application that will show all elements.
+  runApp(DocPreview(elements: [button])); // Application that will show all elements.
 }
 ```
 

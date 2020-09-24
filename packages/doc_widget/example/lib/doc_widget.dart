@@ -22,19 +22,23 @@ void main() {
       ),
     ],
   );
-  final buttoniOS = ElementPreview(
+  final button = ElementPreview(
     document: ButtonDocWidget(),
     previews: [
       WidgetPreview(
-        widget: Button('Button'),
-        description: 'Cupertino default button.',
+        widget: Button(
+          'Button',
+          // ignore: avoid_print
+          onPressed: () => print('Hello'),
+        ),
+        description: 'Default button.',
       ),
     ],
   );
   runApp(
     DocPreview(
       elements: [
-        buttoniOS,
+        button,
         heading,
       ],
     ),
