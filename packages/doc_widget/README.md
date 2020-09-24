@@ -33,7 +33,7 @@ flutter pub run build_runner build
 - Create a `lib/doc_widget.dart` file to use the documentation code. Use `DocPreview` application in `lib/doc_widget.dart` and run this as a target file.
  `flutter run -t lib/doc_widget.dart`
 
-![Doc Widget](https://i.imgur.com/RZ9YO5N.png)
+![Doc Widget](https://i.imgur.com/X9MLGxo.png)
 
 For more details, see [Example](https://github.com/isacjunior/doc_widget/tree/master/packages/doc_widget/example) and see [How to use](#how-to-use) for a complete guide.
 
