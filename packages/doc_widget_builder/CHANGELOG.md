@@ -13,3 +13,7 @@
 ## [0.1.5] - Fix column spacing
 
 * Fix column spacing and update readme
+
+## [0.1.6] - What this solves?
+
+* Improvement readme about what this solves.
