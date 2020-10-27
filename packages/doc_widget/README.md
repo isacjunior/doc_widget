@@ -6,6 +6,7 @@
 Do you need to create documentation that contains all information about your widgets? Don't worry, **doc_widget** will make this easier for you.
 
 ## Indice
+- [What this solve?](#what-this-solve?)
 - [Quick start](#quick-start)
 - [How to use](#how-to-use)
   - [Install](#install)
@@ -16,6 +17,10 @@ Do you need to create documentation that contains all information about your wid
   - [Generated file](#generated-file)
   - [Doc preview](#doc-preview)
     - [How to run](#how-to-run)
+
+# What this solve?
+
+As we don’t have a reflection in Flutter, we cannot access properties and types of a Widget. Besides that, we don't need to create another application that will show your widgets, doc_widget makes this easier.
 
 # Quick Start
 - Install the dependencies.
