@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   doc_widget_annotation: ^0.1.1
-  google_fonts: ^1.1.0
+  google_fonts: ^1.1.1
   flutter_highlight: ^0.6.0
   cupertino_icons: ^0.1.0
 
