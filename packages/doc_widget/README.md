@@ -6,7 +6,7 @@
 Do you need to create documentation that contains all information about your widgets? Don't worry, **doc_widget** will make this easier for you.
 
 ## Indice
-- [What this solve?](#what-this-solve?)
+- [What this solve?](#what-this-solve)
 - [Quick start](#quick-start)
 - [How to use](#how-to-use)
   - [Install](#install)
