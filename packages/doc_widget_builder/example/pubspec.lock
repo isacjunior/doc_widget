@@ -175,7 +175,7 @@ packages:
       path: "../../doc_widget"
       relative: true
     source: path
-    version: "0.1.5"
+    version: "0.1.6"
   doc_widget_annotation:
     dependency: "direct main"
     description:
@@ -241,7 +241,7 @@ packages:
       name: google_fonts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
   graphs:
     dependency: transitive
     description:
