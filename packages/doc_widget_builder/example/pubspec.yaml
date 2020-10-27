@@ -18,7 +18,7 @@ dev_dependencies:
     sdk: flutter
   doc_widget:
     path: ../../doc_widget
-  build_runner: ^1.10.1
+  build_runner: ^1.10.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
