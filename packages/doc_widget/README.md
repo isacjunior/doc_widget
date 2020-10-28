@@ -20,7 +20,7 @@ Do you need to create documentation that contains all information about your wid
 
 # What this solve?
 
-As we don’t have a reflection in Flutter, we cannot access properties and types of a Widget. Besides that, we don't need to create another application that will show your widgets, doc_widget makes this easier.
+As we don’t have a reflection in Flutter, we cannot access informations about properties of a Widget, like a types of properties for example. Besides that, we don't need to create another application that will show your widgets, doc_widget makes this easier.
 
 # Quick Start
 - Install the dependencies.
