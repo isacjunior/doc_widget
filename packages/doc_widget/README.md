@@ -6,6 +6,7 @@
 Do you need to create documentation that contains all information about your widgets? Don't worry, **doc_widget** will make this easier for you.
 
 ## Indice
+
 - [What this solve?](#what-this-solve)
 - [Quick start](#quick-start)
 - [How to use](#how-to-use)
@@ -23,20 +24,25 @@ Do you need to create documentation that contains all information about your wid
 As we don’t have a reflection in Flutter, we cannot access informations about properties of a Widget, like a type and name of a properties for example. Besides that, we don't need to create another application that will show your widgets, doc_widget makes this easier.
 
 # Quick Start
+
 - Install the dependencies.
   - dependencies: `doc_widget`
   - dev_dependencies: `doc_widget_builder`, `build_runner`
 - Annotate widgets with `@docWidget`.
+
 ```dart
 @docWidget
 class Button extends StatelessWidget
 ```
+
 - Run `build_runner` to generate code. This will generate the documentation code.
+
 ```shell
 flutter pub run build_runner build
 ```
+
 - Create a `lib/doc_widget.dart` file to use the documentation code. Use `DocPreview` application in `lib/doc_widget.dart` and run this as a target file.
- `flutter run -t lib/doc_widget.dart`
+  `flutter run -t lib/doc_widget.dart`
 
 ![Doc Widget](https://i.imgur.com/8cbkl9m.png)
 
@@ -45,17 +51,20 @@ For more details, see [Example](https://github.com/isacjunior/doc_widget/tree/ma
 # How to use
 
 ## Install
+
 To use **doc_widget** you need to install `doc_widget`, `doc_widget_builder` and typical build_runner/code-generator setup.
 
 ```yaml
 # pubspec.yaml
 dependencies:
-  doc_widget:
+  doc_widget: latest_version
 
 dev_dependencies:
-  doc_widget_builder:
-  build_runner:
+  doc_widget_builder: latest_version
+  build_runner: latest_version
 ```
+
+`latest_version`: [![Pub](https://img.shields.io/pub/v/doc_widget)](https://pub.dev/packages/doc_widget)
 
 - `doc_widget` is a package that contains annotations and the application preview for your widgets.
 - `doc_widget_builder`, the code generator to generate the documentation.
@@ -93,6 +102,7 @@ class Button extends StatelessWidget {
 ```
 
 After this, you need run the `runner_build` using this command bellow:
+
 ```shell
 flutter pub run build_runner build
 ```
@@ -103,12 +113,12 @@ flutter pub run build_runner build
 
 The code generator will contain all information about your parameters.
 
-| Name | Description |
-| --- | --- |
-| Name | Name of the parameter if is named |
-| Type | Type of the parameter |
-| Required | Whether your parameter is required or not |
-| Default value | If has default value, this will show |
+| Name          | Description                               |
+| ------------- | ----------------------------------------- |
+| Name          | Name of the parameter if is named         |
+| Type          | Type of the parameter                     |
+| Required      | Whether your parameter is required or not |
+| Default value | If has default value, this will show      |
 
 ### Snippet
 
@@ -116,7 +126,7 @@ You can describe how to use your widget with Snippet. You need to use a Document
 
 Below has an example of how to document your widget.
 
-```dart
+````dart
 import 'package:doc_widget/doc_widget.dart';
 
 /// ```dart
@@ -129,7 +139,7 @@ import 'package:doc_widget/doc_widget.dart';
 class Button extends StatelessWidget {
   // ...
 }
-```
+````
 
 <!-- ### State
 
@@ -157,7 +167,7 @@ class Bird extends StatefulWidget {
 
 ## Generated file
 
-Don't worry about generated code, all this information will be used and rendered by `doc_widget`. All generated files contains a prefix `*.doc_widget.dart`. The generated class contains a suffix `DocWidget` to help you to differentiate of the widget. 
+Don't worry about generated code, all this information will be used and rendered by `doc_widget`. All generated files contains a prefix `*.doc_widget.dart`. The generated class contains a suffix `DocWidget` to help you to differentiate of the widget.
 
 **The only information that you need to know is the class name, in this case, is `ButtonDocWidget`.**
 
@@ -209,21 +219,20 @@ You use `VSCode`? You can insert `.vscode/launch.json` to automate this job.
 
 ```json
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "doc_widget app",
-            "request": "launch",
-            "type": "dart",
-            "program": "lib/doc_widget.dart",
-        },
-        {
-            "name": "main app",
-            "request": "launch",
-            "type": "dart",
-            "program": "lib/main.dart",
-        },
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "doc_widget app",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/doc_widget.dart"
+    },
+    {
+      "name": "main app",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart"
+    }
+  ]
 }
 ```
-
