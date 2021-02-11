@@ -212,7 +212,7 @@ void main() {
 After creating a file that contains your doc files `lib/doc_widget.dart`, you need to run the application with `lib/doc_widget.dart` as a target.
 
 ```shell
-flutter run -t lib/doc_widget.dart`
+flutter run -t lib/doc_widget.dart
 ```
 
 You use `VSCode`? You can insert `.vscode/launch.json` to automate this job.

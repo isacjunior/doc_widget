@@ -21,3 +21,7 @@
 ## [0.1.7] - What this solves?
 
 - Updated dependencies
+
+## [0.1.8] - What this solves?
+
+- Bump version

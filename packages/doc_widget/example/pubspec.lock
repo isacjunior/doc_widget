@@ -175,14 +175,14 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.7"
+    version: "0.1.8"
   doc_widget_annotation:
     dependency: transitive
     description:
       name: doc_widget_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.1"
+    version: "0.1.7"
   doc_widget_builder:
     dependency: "direct dev"
     description:
@@ -241,7 +241,7 @@ packages:
       name: google_fonts
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.1"
+    version: "1.1.2"
   graphs:
     dependency: transitive
     description:
