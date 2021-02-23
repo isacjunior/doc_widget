@@ -1,4 +1,4 @@
-# Doc Widget
+<img src="https://i.imgur.com/syguI9x.png" />
 
 ![Build](https://github.com/isacjunior/doc_widget/workflows/Build/badge.svg)
 [![Pub](https://img.shields.io/pub/v/doc_widget)](https://pub.dev/packages/doc_widget)
