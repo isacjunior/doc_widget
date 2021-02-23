@@ -25,3 +25,7 @@
 ## [0.1.8] - What this solves?
 
 - Bump version
+
+## [0.1.9] - What this solves?
+
+- Fixed flutter environment

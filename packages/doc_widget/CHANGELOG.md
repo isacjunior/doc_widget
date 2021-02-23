@@ -33,3 +33,7 @@
 ## [0.1.8] - What this solves?
 
 - Removed cupertino_icon dependencie
+
+## [0.1.9] - What this solves?
+
+- Fixed flutter environment
