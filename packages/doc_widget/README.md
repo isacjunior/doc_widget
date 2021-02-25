@@ -185,11 +185,11 @@ class ButtonDocWidget implements Documentation {
 You have many ways that create an application that will read and rendering the documentation. I will list two ways:
 
 - Running your own project with a different target.
-- Creating another application inside our project. Example: documentation
+- Creating another application inside our project/package. Example: documentation
 
-We use the first approach here. This is a flutter application that the main responsibility is to read all information generated and show your documentation. This job is manual and you need to insert all generated files in `*.doc_widget.dart`.
+This is a flutter application that the main responsibility is to read all information generated and show your documentation. This job is manual and you need to insert all generated files in `*.doc_widget.dart`.
 
-We recommend create a file `lib/doc_widget.dart` like a example below.
+We use the first approach here and create a file `lib/doc_widget.dart` like the example below.
 
 ```dart
 // lib/doc_widget.dart
