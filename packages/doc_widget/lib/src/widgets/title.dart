@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:doc_widget/src/styles/colors.dart';
 import 'package:doc_widget/src/styles/spaces.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TextPreview extends StatelessWidget {
   TextPreview({
@@ -19,7 +18,7 @@ class TextPreview extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: Spaces.springGreen),
       child: Text(
         text,
-        style: GoogleFonts.notoSans(
+        style: TextStyle(
           color: color,
           fontSize: size,
         ),

@@ -29,3 +29,7 @@
 ## [0.1.9] - What this solves?
 
 - Fixed flutter environment
+
+## [0.2.0] - What this solves?
+
+- Removed google_fonts dependencie.

@@ -4,7 +4,6 @@ import 'package:doc_widget/src/styles/spaces.dart';
 import 'package:doc_widget/src/widgets/item.dart';
 import 'package:doc_widget/src/widgets/title.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 /// Flutter application responsible to show all elements that are generated.
 class DocPreview extends StatefulWidget {
@@ -37,12 +36,7 @@ class _DocPreviewState extends State<DocPreview> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        scaffoldBackgroundColor: ColorsDoc.white,
-        textTheme: GoogleFonts.notoSansTextTheme(
-          Theme.of(context).textTheme,
-        ),
-      ),
+      theme: ThemeData(scaffoldBackgroundColor: ColorsDoc.white),
       home: Scaffold(
         key: _scaffoldKey,
         drawer: Drawer(
@@ -97,7 +91,7 @@ class _DocPreviewState extends State<DocPreview> {
           centerTitle: false,
           title: Text(
             _selectedItem.document.name,
-            style: GoogleFonts.notoSans(color: ColorsDoc.darkSlateGray),
+            style: const TextStyle(color: ColorsDoc.darkSlateGray),
           ),
           backgroundColor: ColorsDoc.white,
           elevation: 2,

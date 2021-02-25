@@ -18,6 +18,7 @@ Do you need to create documentation that contains all information about your wid
   - [Generated file](#generated-file)
   - [Doc preview](#doc-preview)
     - [How to run](#how-to-run)
+  - [Exclude files from Analyzer](#exclude-files-from-analyzer)
 
 # What this solve?
 
@@ -181,7 +182,12 @@ class ButtonDocWidget implements Documentation {
 
 ## Doc Preview
 
-This is a flutter application that the main responsibility is to read all information generated and show your documentation. This job is manual and you need to insert all generated files in `*.doc_widget.dart`.
+You have many ways that create an application that will read and rendering the documentation. I will list two ways:
+
+- Running your own project with a different target.
+- Creating another application inside our project. Example: documentation
+
+We use the first approach here. This is a flutter application that the main responsibility is to read all information generated and show your documentation. This job is manual and you need to insert all generated files in `*.doc_widget.dart`.
 
 We recommend create a file `lib/doc_widget.dart` like a example below.
 
@@ -235,4 +241,14 @@ You use `VSCode`? You can insert `.vscode/launch.json` to automate this job.
     }
   ]
 }
+```
+
+# Exclude files from Analyzer
+
+In the case of the need to removed generated files from the analyzer, see below how to exclude them.
+
+```yaml
+analyzer:
+  exclude:
+    - "**/*.doc_widget.dart"
 ```

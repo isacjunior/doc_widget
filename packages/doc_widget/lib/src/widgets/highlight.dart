@@ -5,7 +5,6 @@ import 'package:doc_widget/src/styles/theme_snippet.dart';
 import 'package:doc_widget/src/widgets/snippet_copy.dart';
 
 import 'package:flutter_highlight/flutter_highlight.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HighlightSnippet extends StatelessWidget {
   HighlightSnippet(this.snippet) : assert(snippet != null);
@@ -26,7 +25,6 @@ class HighlightSnippet extends StatelessWidget {
               top: Spaces.dodgerBlue,
               left: Spaces.dodgerBlue,
             ),
-            textStyle: GoogleFonts.notoSans(),
           ),
           SnippetCopy(snippet),
         ],
