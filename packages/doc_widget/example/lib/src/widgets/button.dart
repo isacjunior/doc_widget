@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:doc_widget/doc_widget.dart';
+import 'package:doc_widget_annotation/doc_widget_annotation.dart';
 
 /// ```dart
 /// final button = Button(

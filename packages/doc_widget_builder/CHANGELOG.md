@@ -37,3 +37,7 @@
 ## [0.2.1] - What this solves?
 
 - Added range in some dependencies
+
+## [0.2.2] - What this solves?
+
+- Update annotation
