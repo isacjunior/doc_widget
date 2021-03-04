@@ -33,3 +33,7 @@
 ## [0.2.0] - What this solves?
 
 - Removed google_fonts dependencie.
+
+## [0.2.1] - What this solves?
+
+- Added range in some dependencies
