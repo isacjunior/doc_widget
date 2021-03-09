@@ -5,7 +5,7 @@ import 'package:doc_widget/src/styles/spaces.dart';
 import 'package:doc_widget/src/widgets/title.dart';
 
 class ItemPreview extends StatelessWidget {
-  ItemPreview(this.previews) : assert(previews != null);
+  ItemPreview(this.previews);
   final List<WidgetPreview> previews;
 
   @override
@@ -30,7 +30,7 @@ class ItemPreview extends StatelessWidget {
                   children: [
                     if (preview.description != null)
                       TextPreview(
-                        text: preview.description,
+                        text: preview.description!,
                         size: 14,
                         color: ColorsDoc.darkGray,
                       ),

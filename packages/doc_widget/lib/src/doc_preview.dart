@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 /// Flutter application responsible to show all elements that are generated.
 class DocPreview extends StatefulWidget {
   DocPreview({
-    @required this.elements,
+    required this.elements,
   });
 
   final List<ElementPreview> elements;
@@ -18,7 +18,7 @@ class DocPreview extends StatefulWidget {
 }
 
 class _DocPreviewState extends State<DocPreview> {
-  ElementPreview _selectedItem;
+  late ElementPreview _selectedItem;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -62,8 +62,8 @@ class _DocPreviewState extends State<DocPreview> {
                       ListTile(
                         onTap: () {
                           setSelectedItem(widget.elements[index]);
-                          if (_scaffoldKey.currentState.isDrawerOpen) {
-                            _scaffoldKey.currentState.openEndDrawer();
+                          if (_scaffoldKey.currentState!.isDrawerOpen) {
+                            _scaffoldKey.currentState!.openEndDrawer();
                           }
                         },
                         title: Text(widget.elements[index].document.name),

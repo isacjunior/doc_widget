@@ -7,7 +7,7 @@ import 'package:doc_widget/src/widgets/snippet_copy.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 
 class HighlightSnippet extends StatelessWidget {
-  HighlightSnippet(this.snippet) : assert(snippet != null);
+  HighlightSnippet(this.snippet);
 
   final String snippet;
 

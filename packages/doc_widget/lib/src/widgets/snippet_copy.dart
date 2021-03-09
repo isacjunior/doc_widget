@@ -6,7 +6,7 @@ import 'package:doc_widget/src/styles/colors.dart';
 import 'package:doc_widget/src/styles/spaces.dart';
 
 class SnippetCopy extends StatelessWidget {
-  SnippetCopy(this.snippet) : assert(snippet != null);
+  SnippetCopy(this.snippet);
   final String snippet;
 
   final GlobalKey _toolTipKey = GlobalKey();

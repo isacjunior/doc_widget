@@ -5,7 +5,7 @@ import 'package:doc_widget/src/styles/spaces.dart';
 import 'package:doc_widget/src/widgets/title.dart';
 
 class ItemProperties extends StatelessWidget {
-  ItemProperties(this.documentation) : assert(documentation != null);
+  ItemProperties(this.documentation);
 
   final Documentation documentation;
 

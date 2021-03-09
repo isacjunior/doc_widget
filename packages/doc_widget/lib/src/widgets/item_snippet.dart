@@ -4,7 +4,7 @@ import 'package:doc_widget/src/widgets/highlight.dart';
 import 'package:doc_widget/src/widgets/title.dart';
 
 class ItemSnippet extends StatelessWidget {
-  ItemSnippet(this.snippet) : assert(snippet != null);
+  ItemSnippet(this.snippet);
   final String snippet;
   @override
   Widget build(BuildContext context) {

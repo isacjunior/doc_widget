@@ -5,7 +5,7 @@ import 'package:doc_widget/src/widgets/item_properties.dart';
 import 'package:doc_widget/src/widgets/item_snippet.dart';
 
 class Item extends StatelessWidget {
-  Item(this.element) : assert(element != null);
+  Item(this.element);
   final ElementPreview element;
 
   @override

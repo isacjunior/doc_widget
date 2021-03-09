@@ -9,10 +9,10 @@ abstract class Documentation {
 
 class PropertyDoc {
   PropertyDoc({
-    @required this.name,
-    @required this.type,
-    @required this.isRequired,
-    @required this.isNamed,
+    required this.name,
+    required this.type,
+    required this.isRequired,
+    required this.isNamed,
     this.description,
     this.defaultValue,
   });
@@ -21,14 +21,14 @@ class PropertyDoc {
   final String type;
   final bool isRequired;
   final bool isNamed;
-  final String description;
-  final String defaultValue;
+  final String? description;
+  final String? defaultValue;
 }
 
 class ElementPreview {
   ElementPreview({
-    @required this.document,
-    @required this.previews,
+    required this.document,
+    required this.previews,
   });
 
   final Documentation document;
@@ -37,9 +37,9 @@ class ElementPreview {
 
 class WidgetPreview {
   WidgetPreview({
-    @required this.widget,
+    required this.widget,
     this.description,
   });
   final Widget widget;
-  final String description;
+  final String? description;
 }

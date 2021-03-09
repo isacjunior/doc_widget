@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 
 class CopyPasteIcon extends StatelessWidget {
   const CopyPasteIcon({
-    @required this.color,
+    required this.color,
     this.size = const Size(19.54, 12.54),
   });
 
@@ -20,7 +20,7 @@ class CopyPasteIcon extends StatelessWidget {
 }
 
 class CopyPasteIconPainter extends CustomPainter {
-  const CopyPasteIconPainter({@required this.color});
+  const CopyPasteIconPainter({required this.color});
   final Color color;
 
   @override

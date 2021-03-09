@@ -4,10 +4,10 @@ import 'package:doc_widget/src/styles/spaces.dart';
 
 class TextPreview extends StatelessWidget {
   TextPreview({
-    @required this.text,
+    required this.text,
     this.size = 18,
     this.color = ColorsDoc.darkSlateGray,
-  }) : assert(text != null);
+  });
   final String text;
   final double size;
   final Color color;
