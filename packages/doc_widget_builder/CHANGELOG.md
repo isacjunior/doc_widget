@@ -44,4 +44,4 @@
 
 ## [0.2.3] - What this solves?
 
-- Fix copy paste icon
+- Added support to null-safety

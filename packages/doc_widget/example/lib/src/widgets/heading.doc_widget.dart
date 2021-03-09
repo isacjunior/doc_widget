@@ -25,7 +25,7 @@ class HeadingDocWidget implements Documentation {
           name: 'subtitle',
           isRequired: false,
           isNamed: true,
-          type: 'String',
+          type: 'String?',
           description: 'Subtitle description',
         ),
       ];

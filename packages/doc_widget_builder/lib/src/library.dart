@@ -86,15 +86,15 @@ void _generateParametersRequired(StringBuffer buffer, ParameterElement param) {
   final name = param.name;
   final isRequired = param.hasRequired || param.isNotOptional;
   final isNamed = param.isNamed;
-  final type = param.type.getDisplayString(withNullability: false);
+  final type = param.type.getDisplayString(withNullability: true);
   buffer.writeln(
     "PropertyDoc(name: '$name', isRequired: $isRequired, isNamed: $isNamed, type: '$type',",
   );
 }
 
 String getDefaultValue(ParameterElement param) {
-  final paramIsString =
-      param.type.getDisplayString(withNullability: false) == 'String';
+  final paramToString = param.type.getDisplayString(withNullability: true);
+  final paramIsString = paramToString.contains('String');
   final defaultValue = param.defaultValueCode;
   return paramIsString ? defaultValue : "'$defaultValue'";
 }

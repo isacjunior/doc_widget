@@ -9,13 +9,13 @@ import 'package:doc_widget_annotation/doc_widget_annotation.dart';
 ///```
 @docWidget
 class Heading extends StatelessWidget {
-  Heading({@required this.title, this.subtitle});
+  Heading({required this.title, this.subtitle});
 
   /// Title description
   final String title;
 
   /// Subtitle description
-  final String subtitle;
+  final String? subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class Heading extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(title),
-        if (subtitle != null) Text(subtitle),
+        if (subtitle != null) Text(subtitle!),
       ],
     );
   }

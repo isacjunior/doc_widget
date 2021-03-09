@@ -11,7 +11,7 @@ import 'package:doc_widget_annotation/doc_widget_annotation.dart';
 class Button extends StatelessWidget {
   Button(
     this.text, {
-    @required this.onPressed,
+    required this.onPressed,
     this.color = const Color(0xff007aff),
   });
 
