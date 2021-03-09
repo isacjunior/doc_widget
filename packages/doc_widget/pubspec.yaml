@@ -1,6 +1,6 @@
 name: doc_widget
 description: An easier way that documents your widgets.
-version: 0.2.2
+version: 0.2.3
 homepage: https://github.com/isacjunior/doc_widget
 
 environment:
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   doc_widget_annotation: ^0.1.8
-  flutter_highlight: ^0.6.0
+  flutter_highlight: ^0.7.0
 
 dev_dependencies:
   flutter_test:

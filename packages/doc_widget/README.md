@@ -221,6 +221,12 @@ After creating a file that contains your doc files `lib/doc_widget.dart`, you ne
 flutter run -t lib/doc_widget.dart
 ```
 
+If you prefer, you can run the doc_widget and host it with flutter web.
+
+```shell
+flutter run -d chrome -t lib/doc_widget.dart
+```
+
 You use `VSCode`? You can insert `.vscode/launch.json` to automate this job.
 
 ```json
@@ -228,10 +234,17 @@ You use `VSCode`? You can insert `.vscode/launch.json` to automate this job.
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "doc_widget app",
+      "name": "doc_widget - Mobile",
       "request": "launch",
       "type": "dart",
       "program": "lib/doc_widget.dart"
+    },
+    {
+      "name": "doc_widget - Web",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/doc_widget.dart",
+      "args": ["-d", "chrome"]
     },
     {
       "name": "main app",

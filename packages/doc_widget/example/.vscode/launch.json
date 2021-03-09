@@ -8,6 +8,16 @@
             "program": "lib/doc_widget.dart",
         },
         {
+            "name": "doc_widget app - Web",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/doc_widget.dart",
+            "args": [
+                "-d",
+                "chrome"
+            ]
+        },
+        {
             "name": "example app",
             "request": "launch",
             "type": "dart",

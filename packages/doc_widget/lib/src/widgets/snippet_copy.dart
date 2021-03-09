@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:doc_widget/src/widgets/copy_past_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -40,10 +40,11 @@ class SnippetCopy extends StatelessWidget {
           child: Tooltip(
             key: _toolTipKey,
             message: 'Copied',
-            child: const Icon(
-              CupertinoIcons.share,
-              size: 24,
-              color: ColorsDoc.darkGray,
+            child: const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: CopyPasteIcon(
+                color: ColorsDoc.darkGray,
+              ),
             ),
           ),
         ),

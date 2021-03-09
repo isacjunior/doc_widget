@@ -49,3 +49,7 @@
 ## [0.2.2] - What this solves?
 
 - Update annotation
+
+## [0.2.3] - What this solves?
+
+- Fix copy paste icon
