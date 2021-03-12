@@ -1,17 +1,18 @@
 import 'package:doc_widget/doc_widget.dart';
 import 'package:doc_widget/src/styles/colors.dart';
 import 'package:doc_widget/src/styles/spaces.dart';
+import 'package:doc_widget/src/utils/platform.dart';
+import 'package:doc_widget/src/widgets/app_bar.dart';
+import 'package:doc_widget/src/widgets/drawer.dart';
 import 'package:doc_widget/src/widgets/item.dart';
-import 'package:doc_widget/src/widgets/title.dart';
 import 'package:flutter/material.dart';
 
 /// Flutter application responsible to show all elements that are generated.
 class DocPreview extends StatefulWidget {
-  DocPreview({
-    required this.elements,
-  });
+  DocPreview({required this.elements, this.title});
 
   final List<ElementPreview> elements;
+  final String? title;
 
   @override
   _DocPreviewState createState() => _DocPreviewState();
@@ -35,78 +36,52 @@ class _DocPreviewState extends State<DocPreview> {
 
   @override
   Widget build(BuildContext context) {
+    Widget renderBody() {
+      return SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: Spaces.goldenDream,
+            vertical: Spaces.geraldine,
+          ),
+          child: Item(_selectedItem),
+        ),
+      );
+    }
+
+    Widget renderDrawer() {
+      return DrawerCustom(
+        title: widget.title,
+        elements: widget.elements,
+        onTap: (selectedItem) {
+          setSelectedItem(selectedItem);
+          if (_scaffoldKey.currentState!.isDrawerOpen && isMobile()) {
+            _scaffoldKey.currentState!.openEndDrawer();
+          }
+        },
+      );
+    }
+
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: ColorsDoc.white),
       home: Scaffold(
         key: _scaffoldKey,
-        drawer: Drawer(
-          child: Container(
-            color: ColorsDoc.ghostWhite,
-            child: ListView(
-              physics: const ClampingScrollPhysics(),
-              padding: EdgeInsets.zero,
-              children: <Widget>[
-                Container(
-                  height: 110,
-                  child: DrawerHeader(
-                    child: TextPreview(text: 'Doc Widget'),
-                    decoration: const BoxDecoration(
-                      color: ColorsDoc.white,
-                    ),
-                  ),
-                ),
-                ...List.generate(
-                  widget.elements.length,
-                  (index) => Column(
-                    children: [
-                      ListTile(
-                        onTap: () {
-                          setSelectedItem(widget.elements[index]);
-                          if (_scaffoldKey.currentState!.isDrawerOpen) {
-                            _scaffoldKey.currentState!.openEndDrawer();
-                          }
-                        },
-                        title: Text(widget.elements[index].document.name),
-                      ),
-                      const Divider(),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-        appBar: AppBar(
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: const Icon(
-                  Icons.menu,
-                  color: ColorsDoc.darkGray,
-                ),
-                onPressed: Scaffold.of(context).openDrawer,
-              );
-            },
-          ),
-          centerTitle: false,
-          title: Text(
-            _selectedItem.document.name,
-            style: const TextStyle(color: ColorsDoc.darkSlateGray),
-          ),
-          backgroundColor: ColorsDoc.white,
-          elevation: 2,
-          brightness: Brightness.light,
-          shadowColor: ColorsDoc.ghostWhite,
-        ),
-        body: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: Spaces.goldenDream,
-              vertical: Spaces.geraldine,
-            ),
-            child: Item(_selectedItem),
-          ),
-        ),
+        drawer: isMobile() ? renderDrawer() : null,
+        appBar: isMobile()
+            ? PreferredSize(
+                preferredSize: const Size.fromHeight(kToolbarHeight),
+                child: AppBarCustom(title: _selectedItem.document.name),
+              )
+            : null,
+        body: isMobile()
+            ? renderBody()
+            : Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  renderDrawer(),
+                  Expanded(child: renderBody()),
+                ],
+              ),
       ),
     );
   }

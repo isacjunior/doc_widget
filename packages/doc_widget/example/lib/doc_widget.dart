@@ -37,6 +37,7 @@ void main() {
   );
   runApp(
     DocPreview(
+      title: 'Example',
       elements: [
         button,
         heading,

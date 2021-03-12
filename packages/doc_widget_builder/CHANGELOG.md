@@ -45,3 +45,7 @@
 ## [0.2.3] - What this solves?
 
 - Added support to null-safety
+
+## [0.2.4] - What this solves?
+
+- Added UI to the desktop platform
