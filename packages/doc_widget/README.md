@@ -18,6 +18,7 @@ Do you need to create documentation that contains all information about your wid
   - [Generated file](#generated-file)
   - [Doc preview](#doc-preview)
     - [How to run](#how-to-run)
+  - [VSCode launch](#vscode-launch)
   - [Exclude files from Analyzer](#exclude-files-from-analyzer)
 
 # What this solve?
@@ -83,7 +84,7 @@ import 'package:doc_widget/doc_widget.dart';
 class Button extends StatelessWidget {
   Button(
     this.text, {
-    @required this.onPressed,
+    required this.onPressed,
     this.color = const Color(0xff007aff),
   });
 
@@ -117,7 +118,7 @@ The code generator will contain all information about your parameters.
 | Name          | Description                               |
 | ------------- | ----------------------------------------- |
 | Name          | Name of the parameter if is named         |
-| Type          | Type of the parameter                     |
+| Type          | Type of the parameter (null-safety)       |
 | Required      | Whether your parameter is required or not |
 | Default value | If has default value, this will show      |
 
@@ -217,17 +218,17 @@ void main() {
 
 After creating a file that contains your doc files `lib/doc_widget.dart`, you need to run the application with `lib/doc_widget.dart` as a target.
 
-```shell
-flutter run -t lib/doc_widget.dart
-```
-
 If you prefer, you can run the doc_widget and host it with flutter web.
 
 ```shell
 flutter run -d chrome -t lib/doc_widget.dart
 ```
 
-You use `VSCode`? You can insert `.vscode/launch.json` to automate this job.
+![Desktop](https://i.imgur.com/AWn2GBW.png)
+
+# VSCode launch
+
+You use `VSCode`? You can insert `.vscode/launch.json` to automate the run job.
 
 ```json
 {
