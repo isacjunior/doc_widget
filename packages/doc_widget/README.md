@@ -59,14 +59,15 @@ To use **doc_widget** you need to install `doc_widget`, `doc_widget_builder` and
 ```yaml
 # pubspec.yaml
 dependencies:
-  doc_widget: latest_version
+  doc_widget: doc_widget_version
 
 dev_dependencies:
-  doc_widget_builder: latest_version
-  build_runner: latest_version
+  doc_widget_builder: doc_widget_version
+  build_runner: build_runner_version
 ```
 
-`latest_version`: [![Pub](https://img.shields.io/pub/v/doc_widget)](https://pub.dev/packages/doc_widget)
+- `doc_widget_version`: [![Pub](https://img.shields.io/pub/v/doc_widget)](https://pub.dev/packages/doc_widget)
+- `build_runner_version`: [![Pub](https://img.shields.io/pub/v/build_runner)](https://pub.dev/packages/build_runner)
 
 - `doc_widget` is a package that contains annotations and the application preview for your widgets.
 - `doc_widget_builder`, the code generator to generate the documentation.

@@ -57,3 +57,7 @@
 ## [0.2.4] - What this solves?
 
 - Added UI to the desktop platform
+
+## [0.2.5] - What this solves?
+
+- Updated the range of the build dependency.
