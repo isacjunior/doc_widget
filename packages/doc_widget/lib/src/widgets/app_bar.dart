@@ -1,5 +1,6 @@
 import 'package:doc_widget/src/styles/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AppBarCustom extends StatelessWidget {
   const AppBarCustom({required this.title});
@@ -26,7 +27,7 @@ class AppBarCustom extends StatelessWidget {
       ),
       backgroundColor: ColorsDoc.white,
       elevation: 2,
-      brightness: Brightness.light,
+      systemOverlayStyle: SystemUiOverlayStyle.light,
       shadowColor: ColorsDoc.ghostWhite,
     );
   }
