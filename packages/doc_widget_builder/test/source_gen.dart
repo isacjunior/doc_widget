@@ -115,9 +115,9 @@ class NamedParameter extends StatelessWidget {
   NamedParameter({this.title});
 
   /// Title description
-  final String title;
+  final String? title;
   @override
-  Widget build(BuildContext context) => Text(title);
+  Widget build(BuildContext context) => Text(title ?? '');
 }
 
 // Shouldn't contain named parameter
@@ -133,19 +133,20 @@ class NoIsNamedParameter extends StatelessWidget {
 }
 
 // Shouldn't contain required parameter and named true
+// Should contain the String nullable
 @ShouldGenerate('''PropertyDoc(
           name: 'title',
           isRequired: false,
           isNamed: true,
-          type: 'String',
+          type: 'String?',
         ),''', contains: true)
 @docWidget
 class NoRequiredParameter extends StatelessWidget {
   NoRequiredParameter({this.title});
 
-  final String title;
+  final String? title;
   @override
-  Widget build(BuildContext context) => Text(title);
+  Widget build(BuildContext context) => Text(title ?? '');
 }
 
 // Should contain required parameter with named true
@@ -157,7 +158,7 @@ class NoRequiredParameter extends StatelessWidget {
         ),''', contains: true)
 @docWidget
 class RequiredParameterNamed extends StatelessWidget {
-  RequiredParameterNamed({@required this.title});
+  RequiredParameterNamed({required this.title});
 
   final String title;
   @override
