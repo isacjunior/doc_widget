@@ -61,3 +61,7 @@
 ## [0.2.5] - What this solves?
 
 - Updated the range of the build dependency.
+
+## [0.2.7] - What this solves?
+
+- Updated the dependencies.

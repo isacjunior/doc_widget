@@ -9,7 +9,7 @@ String generateLibrary(ClassElement element) {
   final name = element.name;
   final hasState = hasType(element.allSupertypes, 'StatefulWidget');
   final snippet = getSnippet(
-      removeDocumentationComment(element.documentationComment ?? ''));
+      removeDocumentationComment(element.documentationComment ?? '') ?? '');
   final emitter = DartEmitter();
   final dartFormatter = DartFormatter();
 
@@ -92,7 +92,7 @@ void _generateParametersRequired(StringBuffer buffer, ParameterElement param) {
   );
 }
 
-String getDefaultValue(ParameterElement param) {
+String? getDefaultValue(ParameterElement param) {
   final paramToString = param.type.getDisplayString(withNullability: true);
   final paramIsString = paramToString.contains('String');
   final defaultValue = param.defaultValueCode;
@@ -100,7 +100,7 @@ String getDefaultValue(ParameterElement param) {
 }
 
 String _getParametersString(ClassElement element) {
-  final parameters = element.unnamedConstructor.parameters;
+  final parameters = element.unnamedConstructor?.parameters ?? [];
   final parametersBuffer = StringBuffer();
   for (final param in parameters) {
     _generateParametersRequired(parametersBuffer, param);
@@ -116,15 +116,16 @@ String _getParametersString(ClassElement element) {
   return parametersBuffer.toString();
 }
 
-String getDescription(String name, List<FieldElement> fields) {
+String? getDescription(String name, List<FieldElement> fields) {
   final hasField = fields.any((field) => field.name == name);
   if (hasField) {
     final field = fields.firstWhere((element) => element.name == name);
     final hasDocumentation = field.documentationComment != null;
-
-    return hasDocumentation
-        ? removeDocumentationComment(field.documentationComment)
-        : null;
+    if (hasDocumentation)
+      return hasDocumentation
+          ? removeDocumentationComment(field.documentationComment)
+          : null;
+  } else {
+    return null;
   }
-  return null;
 }

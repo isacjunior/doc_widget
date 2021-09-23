@@ -57,3 +57,7 @@
 ## [0.2.6] - What this solves?
 
 - Updated the range of the dependencies.
+
+## [0.2.7] - What this solves?
+
+- Updated the dependencies.
