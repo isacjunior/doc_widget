@@ -13,3 +13,7 @@
 ## [0.1.8] - What this solves?
 
 - Update environment sdk
+
+## [0.2.8] - What this solves?
+
+- Improve the regexp

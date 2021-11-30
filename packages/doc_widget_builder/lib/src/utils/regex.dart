@@ -4,7 +4,8 @@ String? removeDocumentationComment(String? element) {
 }
 
 String getSnippet(String element) {
-  final regex = RegExp(r'(.*dart|```.*)');
+  final regex = RegExp(r'\```dart([\s\S]*?)\```');
   final stringWithoutDoubleQuotes = element.replaceAll('"', "'");
-  return stringWithoutDoubleQuotes.replaceAll(regex, '').trim();
+  final match = regex.firstMatch(stringWithoutDoubleQuotes);
+  return match?.group(1)?.trim() ?? '';
 }

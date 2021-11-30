@@ -65,3 +65,7 @@
 ## [0.2.7] - What this solves?
 
 - Updated the dependencies.
+
+## [0.2.8] - What this solves?
+
+- Improve the regexp
