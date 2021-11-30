@@ -7,7 +7,8 @@ void main() {
 ```dart
 final title = Title5('text');
 ```
+Other comments
 ''';
-    expect("final title = Title5('text');", getSnippet(snippet));
+    expect(getSnippet(snippet), "final title = Title5('text');");
   });
 }
