@@ -211,7 +211,10 @@ void main() {
     ],
   );
 
-  runApp(DocPreview(elements: [button])); // Application that will show all elements.
+  runApp(DocPreview(section: [ElementsSection(
+    header: 'Buttons',
+    elements: [button],
+  )])); // Application that will show all elements.
 }
 ```
 
