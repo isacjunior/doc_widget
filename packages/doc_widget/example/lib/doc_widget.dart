@@ -38,9 +38,11 @@ void main() {
   runApp(
     DocPreview(
       title: 'Example',
-      elements: [
-        button,
-        heading,
+      sections: [
+        ElementsSection(header: 'Elements', elements: [
+          button,
+          heading,
+        ]),
       ],
     ),
   );
