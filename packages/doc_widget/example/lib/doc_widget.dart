@@ -39,10 +39,19 @@ void main() {
     DocPreview(
       title: 'Example',
       sections: [
-        ElementsSection(header: 'Elements', elements: [
-          button,
-          heading,
-        ]),
+        ElementsSection(
+            header: Container(
+              color: Colors.grey,
+              child: const Text(
+                'Elements',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            ),
+            elements: [
+              button,
+              heading,
+            ]),
       ],
     ),
   );

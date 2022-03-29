@@ -50,6 +50,6 @@ class ElementsSection {
     this.header,
   });
 
-  final String? header;
+  final Widget? header;
   final List<ElementPreview> elements;
 }

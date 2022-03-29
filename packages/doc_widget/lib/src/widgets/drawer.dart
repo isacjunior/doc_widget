@@ -56,16 +56,7 @@ class DrawerSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisSize: MainAxisSize.min,
       children: [
-        if (section.header != null)
-          Container(
-            child: Text(section.header!,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelMedium
-                    ?.copyWith(color: ColorsDoc.ghostWhite)),
-            color: ColorsDoc.darkGray,
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          ),
+        if (section.header != null) section.header!,
         ...List.generate(
           section.elements.length,
           (index) => Column(

@@ -212,7 +212,7 @@ void main() {
   );
 
   runApp(DocPreview(section: [ElementsSection(
-    header: 'Buttons',
+    header: Text('Buttons'),
     elements: [button],
   )])); // Application that will show all elements.
 }
