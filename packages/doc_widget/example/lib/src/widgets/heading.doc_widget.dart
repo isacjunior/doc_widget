@@ -13,6 +13,8 @@ class HeadingDocWidget implements Documentation {
   @override
   bool get hasState => false;
   @override
+  String? get deprecation => null;
+  @override
   List<PropertyDoc> get properties => [
         PropertyDoc(
           name: 'title',

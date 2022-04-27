@@ -8,6 +8,7 @@ import 'package:source_gen/source_gen.dart';
 String generateLibrary(ClassElement element) {
   final name = element.name;
   final hasState = hasType(element.allSupertypes, 'StatefulWidget');
+  final deprecation = getDeprecationMessage(element);
   final snippet = getSnippet(
       removeDocumentationComment(element.documentationComment ?? '') ?? '');
   final emitter = DartEmitter();
@@ -43,6 +44,16 @@ String generateLibrary(ClassElement element) {
       ..name = 'hasState',
   );
 
+  final getDeprecationMethod = Method(
+    (m) => m
+      ..type = MethodType.getter
+      ..returns = refer('String?')
+      ..lambda = true
+      ..annotations.add(refer('override'))
+      ..body = Code(deprecation == null ? 'null' : "'$deprecation'")
+      ..name = 'deprecation',
+  );
+
   final getPropertiesMethod = Method(
     (m) => m
       ..type = MethodType.getter
@@ -60,6 +71,7 @@ String generateLibrary(ClassElement element) {
       ..methods.addAll([
         getNameMethod,
         getHasStateMethod,
+        getDeprecationMethod,
         getPropertiesMethod,
         getSnippetMethod
       ]),
@@ -90,6 +102,19 @@ void _generateParametersRequired(StringBuffer buffer, ParameterElement param) {
   buffer.writeln(
     "PropertyDoc(name: '$name', isRequired: $isRequired, isNamed: $isNamed, type: '$type',",
   );
+}
+
+String? getDeprecationMessage(ClassElement element) {
+  if (!element.hasDeprecated) return null;
+  return element.metadata
+      .cast<ElementAnnotation?>()
+      .firstWhere(
+        (element) => element?.isDeprecated ?? false,
+        orElse: () => null,
+      )
+      ?.computeConstantValue()
+      ?.getField('message')
+      ?.toStringValue();
 }
 
 String? getDefaultValue(ParameterElement param) {

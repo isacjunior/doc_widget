@@ -13,6 +13,8 @@ class ButtonDocWidget implements Documentation {
   @override
   bool get hasState => false;
   @override
+  String? get deprecation => 'Use [ElevatedButton] instead.';
+  @override
   List<PropertyDoc> get properties => [
         PropertyDoc(
           name: 'text',

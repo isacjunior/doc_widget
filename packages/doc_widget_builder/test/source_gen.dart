@@ -68,6 +68,21 @@ class _HasStateState extends State<HasState> {
   Widget build(BuildContext context) => Container();
 }
 
+// Check isDeprecated
+@ShouldGenerate(
+  r'''
+  @override
+  String? get deprecation => 'Use [NotDeprecatedWidget]';
+  ''',
+  contains: true,
+)
+@docWidget
+@Deprecated('Use [NotDeprecatedWidget]')
+class DeprecatedWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) => const Text('Test');
+}
+
 // Should contain snippet
 @ShouldGenerate('final title = Title5()', contains: true)
 
@@ -216,6 +231,8 @@ class MoreProperties extends StatelessWidget {
   '  String get name => \'FullExample\';\n'
   '  @override\n'
   '  bool get hasState => false;\n'
+  '  @override\n'
+  '  String? get deprecation => null;\n'
   '  @override\n'
   '  List<PropertyDoc> get properties => [\n'
   '        PropertyDoc(\n'
