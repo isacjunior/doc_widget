@@ -108,6 +108,34 @@ class DefaultValue extends StatelessWidget {
   Widget build(BuildContext context) => Text(title);
 }
 
+// Should contain property default
+@ShouldGenerate(r"defaultValue: 'kValue: \'default value title\''", contains: true)
+@docWidget
+class DefaultConstValue extends StatelessWidget {
+  static const kValue = 'default value title';
+
+  DefaultConstValue({this.title = kValue});
+
+  /// Title description
+  final String title;
+  @override
+  Widget build(BuildContext context) => Text(title);
+}
+
+// Should contain property default
+@ShouldGenerate(r"defaultValue: '_kValue: \'default value title\''", contains: true)
+@docWidget
+class DefaultPrivateConstValue extends StatelessWidget {
+  static const _kValue = 'default value title';
+
+  DefaultPrivateConstValue({this.title = _kValue});
+
+  /// Title description
+  final String title;
+  @override
+  Widget build(BuildContext context) => Text(title);
+}
+
 // Should contain named parameter
 @ShouldGenerate('isNamed: true,', contains: true)
 @docWidget

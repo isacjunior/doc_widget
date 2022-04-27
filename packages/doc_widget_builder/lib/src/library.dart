@@ -1,3 +1,4 @@
+import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
@@ -71,7 +72,10 @@ String generateLibrary(ClassElement element) {
 }
 
 String formatSnippet(
-    DartFormatter formatter, String code, ClassElement element) {
+  DartFormatter formatter,
+  String code,
+  ClassElement element,
+) {
   try {
     return "'''${formatter.format(code)}'''";
   } catch (e) {
@@ -92,11 +96,53 @@ void _generateParametersRequired(StringBuffer buffer, ParameterElement param) {
   );
 }
 
+String? _convertDartObjectToCode(DartObject? object) {
+  if (object == null) return null;
+  final values = [
+    object.toBoolValue(),
+    object.toIntValue(),
+    object.toDoubleValue(),
+    object.toFunctionValue(),
+    object.toListValue(),
+    object.toSetValue(),
+    object.toMapValue(),
+    object.toStringValue(),
+    object.toSymbolValue(),
+    object.toTypeValue(),
+  ];
+  return values
+      .firstWhere((element) => element != null, orElse: () => null)
+      ?.toString();
+}
+
 String? getDefaultValue(ParameterElement param) {
   final paramToString = param.type.getDisplayString(withNullability: true);
   final paramIsString = paramToString.contains('String');
-  final defaultValue = param.defaultValueCode;
-  return paramIsString ? defaultValue : "'$defaultValue'";
+  final defaultValueCode = param.defaultValueCode;
+
+  final defaultComputedValue = param.computeConstantValue();
+  final defaultComputedValueCode =
+      _convertDartObjectToCode(param.computeConstantValue());
+
+  if (paramIsString) {
+    final trimmedValueCode = {'\"', '\''}.contains(defaultValueCode?[0])
+        ? defaultValueCode!.substring(1, defaultValueCode.length - 1)
+        : defaultValueCode;
+
+    if (trimmedValueCode != defaultComputedValueCode &&
+        defaultComputedValue?.hasKnownValue == true) {
+      return "'$trimmedValueCode: \\'$defaultComputedValueCode\\''";
+    } else {
+      return defaultValueCode;
+    }
+  } else {
+    if (defaultValueCode != defaultComputedValueCode &&
+        defaultComputedValue?.hasKnownValue == true) {
+      return "'$defaultValueCode: $defaultComputedValueCode'";
+    } else {
+      return "'$defaultValueCode'";
+    }
+  }
 }
 
 String _getParametersString(ClassElement element) {
@@ -106,7 +152,8 @@ String _getParametersString(ClassElement element) {
     _generateParametersRequired(parametersBuffer, param);
     if (getDescription(param.name, element.fields) != null) {
       parametersBuffer.write(
-          "description: '${getDescription(param.name, element.fields)}',");
+        "description: '${getDescription(param.name, element.fields)}',",
+      );
     }
     if (param.defaultValueCode != null) {
       parametersBuffer.write('defaultValue: ${getDefaultValue(param)},');
