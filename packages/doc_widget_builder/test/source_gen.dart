@@ -109,7 +109,10 @@ class DefaultValue extends StatelessWidget {
 }
 
 // Should contain property default
-@ShouldGenerate(r"defaultValue: 'kValue: \'default value title\''", contains: true)
+@ShouldGenerate(
+  r"defaultValue: 'kValue: \'default value title\''",
+  contains: true,
+)
 @docWidget
 class DefaultConstValue extends StatelessWidget {
   static const kValue = 'default value title';
@@ -123,7 +126,10 @@ class DefaultConstValue extends StatelessWidget {
 }
 
 // Should contain property default
-@ShouldGenerate(r"defaultValue: '_kValue: \'default value title\''", contains: true)
+@ShouldGenerate(
+  r"defaultValue: '_kValue: \'default value title\''",
+  contains: true,
+)
 @docWidget
 class DefaultPrivateConstValue extends StatelessWidget {
   static const _kValue = 'default value title';
@@ -134,6 +140,39 @@ class DefaultPrivateConstValue extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) => Text(title);
+}
+
+class ComplexData {
+  final String title;
+  final int version;
+
+  const ComplexData(this.title, this.version);
+}
+
+@ShouldGenerate(r"defaultValue: 'kValue'", contains: true)
+@docWidget
+class DefaultConstComplexValue extends StatelessWidget {
+  static const kValue = ComplexData('default value title', 1);
+
+  DefaultConstComplexValue({this.data = kValue});
+
+  /// Title description
+  final ComplexData data;
+  @override
+  Widget build(BuildContext context) => Text(data.title);
+}
+
+@ShouldGenerate(r"defaultValue: 'kValue: null'", contains: true)
+@docWidget
+class DefaultConstComplexNullValue extends StatelessWidget {
+  static const ComplexData? kValue = null;
+
+  DefaultConstComplexNullValue({this.data = kValue});
+
+  /// Title description
+  final ComplexData? data;
+  @override
+  Widget build(BuildContext context) => Text(data?.title ?? '');
 }
 
 // Should contain named parameter

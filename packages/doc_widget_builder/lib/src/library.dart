@@ -124,20 +124,26 @@ String? getDefaultValue(ParameterElement param) {
   final defaultComputedValueCode =
       _convertDartObjectToCode(param.computeConstantValue());
 
+  final isEvaluated = defaultComputedValue?.hasKnownValue == true &&
+      (defaultComputedValue?.isNull == true ||
+          defaultComputedValueCode != null);
+
+  print(
+    'paramToString: $paramToString, paramIsString: $paramIsString, defaultValueCode: $defaultValueCode, defaultComputedValue: $defaultComputedValue, defaultComputedValueCode: $defaultComputedValueCode',
+  );
+
   if (paramIsString) {
     final trimmedValueCode = {'\"', '\''}.contains(defaultValueCode?[0])
         ? defaultValueCode!.substring(1, defaultValueCode.length - 1)
         : defaultValueCode;
 
-    if (trimmedValueCode != defaultComputedValueCode &&
-        defaultComputedValue?.hasKnownValue == true) {
+    if (trimmedValueCode != defaultComputedValueCode && isEvaluated) {
       return "'$trimmedValueCode: \\'$defaultComputedValueCode\\''";
     } else {
       return defaultValueCode;
     }
   } else {
-    if (defaultValueCode != defaultComputedValueCode &&
-        defaultComputedValue?.hasKnownValue == true) {
+    if (defaultValueCode != defaultComputedValueCode && isEvaluated) {
       return "'$defaultValueCode: $defaultComputedValueCode'";
     } else {
       return "'$defaultValueCode'";
