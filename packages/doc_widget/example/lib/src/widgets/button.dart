@@ -8,6 +8,7 @@ import 'package:doc_widget_annotation/doc_widget_annotation.dart';
 /// );
 /// ```
 @docWidget
+@Deprecated('Use [ElevatedButton] instead.')
 class Button extends StatelessWidget {
   Button(
     this.text, {

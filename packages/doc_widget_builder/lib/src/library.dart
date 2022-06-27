@@ -1,3 +1,4 @@
+import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
@@ -8,6 +9,7 @@ import 'package:source_gen/source_gen.dart';
 String generateLibrary(ClassElement element) {
   final name = element.name;
   final hasState = hasType(element.allSupertypes, 'StatefulWidget');
+  final deprecation = getDeprecationMessage(element);
   final snippet = getSnippet(
       removeDocumentationComment(element.documentationComment ?? '') ?? '');
   final emitter = DartEmitter();
@@ -43,6 +45,16 @@ String generateLibrary(ClassElement element) {
       ..name = 'hasState',
   );
 
+  final getDeprecationMethod = Method(
+    (m) => m
+      ..type = MethodType.getter
+      ..returns = refer('String?')
+      ..lambda = true
+      ..annotations.add(refer('override'))
+      ..body = Code(deprecation == null ? 'null' : "'$deprecation'")
+      ..name = 'deprecation',
+  );
+
   final getPropertiesMethod = Method(
     (m) => m
       ..type = MethodType.getter
@@ -60,6 +72,7 @@ String generateLibrary(ClassElement element) {
       ..methods.addAll([
         getNameMethod,
         getHasStateMethod,
+        getDeprecationMethod,
         getPropertiesMethod,
         getSnippetMethod
       ]),
@@ -71,7 +84,10 @@ String generateLibrary(ClassElement element) {
 }
 
 String formatSnippet(
-    DartFormatter formatter, String code, ClassElement element) {
+  DartFormatter formatter,
+  String code,
+  ClassElement element,
+) {
   try {
     return "'''${formatter.format(code)}'''";
   } catch (e) {
@@ -92,11 +108,68 @@ void _generateParametersRequired(StringBuffer buffer, ParameterElement param) {
   );
 }
 
+String? _convertDartObjectToCode(DartObject? object) {
+  if (object == null) return null;
+  final values = [
+    object.toBoolValue(),
+    object.toIntValue(),
+    object.toDoubleValue(),
+    object.toFunctionValue(),
+    object.toListValue(),
+    object.toSetValue(),
+    object.toMapValue(),
+    object.toStringValue(),
+    object.toSymbolValue(),
+    object.toTypeValue(),
+  ];
+  return values
+      .firstWhere((element) => element != null, orElse: () => null)
+      ?.toString();
+}
+
+String? getDeprecationMessage(ClassElement element) {
+  if (!element.hasDeprecated) return null;
+  return element.metadata
+      .cast<ElementAnnotation?>()
+      .firstWhere(
+        (element) => element?.isDeprecated ?? false,
+        orElse: () => null,
+      )
+      ?.computeConstantValue()
+      ?.getField('message')
+      ?.toStringValue();
+}
+
 String? getDefaultValue(ParameterElement param) {
   final paramToString = param.type.getDisplayString(withNullability: true);
   final paramIsString = paramToString.contains('String');
-  final defaultValue = param.defaultValueCode;
-  return paramIsString ? defaultValue : "'$defaultValue'";
+  final defaultValueCode = param.defaultValueCode;
+
+  final defaultComputedValue = param.computeConstantValue();
+  final defaultComputedValueCode =
+      _convertDartObjectToCode(param.computeConstantValue());
+
+  final isEvaluated = defaultComputedValue?.hasKnownValue == true &&
+      (defaultComputedValue?.isNull == true ||
+          defaultComputedValueCode != null);
+
+  if (paramIsString) {
+    final trimmedValueCode = {'\"', '\''}.contains(defaultValueCode?[0])
+        ? defaultValueCode!.substring(1, defaultValueCode.length - 1)
+        : defaultValueCode;
+
+    if (trimmedValueCode != defaultComputedValueCode && isEvaluated) {
+      return "'$trimmedValueCode: \\'$defaultComputedValueCode\\''";
+    } else {
+      return defaultValueCode;
+    }
+  } else {
+    if (defaultValueCode != defaultComputedValueCode && isEvaluated) {
+      return "'$defaultValueCode: $defaultComputedValueCode'";
+    } else {
+      return "'$defaultValueCode'";
+    }
+  }
 }
 
 String _getParametersString(ClassElement element) {
@@ -106,7 +179,8 @@ String _getParametersString(ClassElement element) {
     _generateParametersRequired(parametersBuffer, param);
     if (getDescription(param.name, element.fields) != null) {
       parametersBuffer.write(
-          "description: '${getDescription(param.name, element.fields)}',");
+        "description: '${getDescription(param.name, element.fields)}',",
+      );
     }
     if (param.defaultValueCode != null) {
       parametersBuffer.write('defaultValue: ${getDefaultValue(param)},');
