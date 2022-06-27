@@ -26,6 +26,7 @@ void main() {
     document: ButtonDocWidget(),
     previews: [
       WidgetPreview(
+        // ignore: deprecated_member_use_from_same_package
         widget: Button(
           'Button',
           // ignore: avoid_print
