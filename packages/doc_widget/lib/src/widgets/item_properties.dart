@@ -1,6 +1,5 @@
 import 'package:doc_widget/src/elements.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:doc_widget/src/styles/spaces.dart';
 import 'package:doc_widget/src/widgets/title.dart';
 
