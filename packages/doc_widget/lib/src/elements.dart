@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 abstract class Documentation {
   String get name;
   List<PropertyDoc> get properties;
+  String? get deprecation;
   bool get hasState;
   String get snippet;
 }
