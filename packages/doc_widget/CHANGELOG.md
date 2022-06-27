@@ -69,3 +69,9 @@
 ## [0.2.8] - What this solves?
 
 - Improve the regexp
+
+## [0.2.9] - What this solves?
+
+- add deprecation label for deprecated widgets
+- add computed default values
+- Breaking: Adds ElementsSection. Use `sections` instead of `elements` in `DocPreview`
