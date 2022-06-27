@@ -9,9 +9,9 @@ import 'package:flutter/material.dart';
 
 /// Flutter application responsible to show all elements that are generated.
 class DocPreview extends StatefulWidget {
-  DocPreview({required this.elements, this.title});
+  DocPreview({required this.sections, this.title});
 
-  final List<ElementPreview> elements;
+  final List<ElementsSection> sections;
   final String? title;
 
   @override
@@ -24,7 +24,7 @@ class _DocPreviewState extends State<DocPreview> {
 
   @override
   void initState() {
-    _selectedItem = widget.elements.first;
+    _selectedItem = widget.sections.first.elements.first;
     super.initState();
   }
 
@@ -51,7 +51,7 @@ class _DocPreviewState extends State<DocPreview> {
     Widget renderDrawer() {
       return DrawerCustom(
         title: widget.title,
-        elements: widget.elements,
+        sections: widget.sections,
         onTap: (selectedItem) {
           setSelectedItem(selectedItem);
           if (_scaffoldKey.currentState!.isDrawerOpen && isMobile()) {

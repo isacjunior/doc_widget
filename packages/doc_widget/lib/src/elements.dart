@@ -44,3 +44,13 @@ class WidgetPreview {
   final Widget widget;
   final String? description;
 }
+
+class ElementsSection {
+  ElementsSection({
+    required this.elements,
+    this.header,
+  });
+
+  final Widget? header;
+  final List<ElementPreview> elements;
+}

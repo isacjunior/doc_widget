@@ -4,9 +4,9 @@ import 'package:doc_widget/src/widgets/title.dart';
 import 'package:flutter/material.dart';
 
 class DrawerCustom extends StatelessWidget {
-  const DrawerCustom({required this.elements, required this.onTap, this.title});
+  const DrawerCustom({required this.sections, required this.onTap, this.title});
 
-  final List<ElementPreview> elements;
+  final List<ElementsSection> sections;
   final ValueChanged<ElementPreview> onTap;
   final String? title;
 
@@ -28,21 +28,48 @@ class DrawerCustom extends StatelessWidget {
                 ),
               ),
             ),
-            ...List.generate(
-              elements.length,
-              (index) => Column(
-                children: [
-                  ListTile(
-                    onTap: () => onTap(elements[index]),
-                    title: Text(elements[index].document.name),
-                  ),
-                  const Divider(),
-                ],
-              ),
-            )
+            ...sections
+                .map((section) => DrawerSection(
+                      section: section,
+                      onTap: onTap,
+                    ))
+                .toList(),
           ],
         ),
       ),
+    );
+  }
+}
+
+class DrawerSection extends StatelessWidget {
+  const DrawerSection({
+    Key? key,
+    required this.section,
+    required this.onTap,
+  }) : super(key: key);
+  final ElementsSection section;
+  final ValueChanged<ElementPreview> onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (section.header != null) section.header!,
+        ...List.generate(
+          section.elements.length,
+          (index) => Column(
+            children: [
+              ListTile(
+                onTap: () => onTap(section.elements[index]),
+                title: Text(section.elements[index].document.name),
+              ),
+              const Divider(height: 1, thickness: 1),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

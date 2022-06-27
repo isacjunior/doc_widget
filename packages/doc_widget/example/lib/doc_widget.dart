@@ -39,9 +39,20 @@ void main() {
   runApp(
     DocPreview(
       title: 'Example',
-      elements: [
-        button,
-        heading,
+      sections: [
+        ElementsSection(
+            header: Container(
+              color: Colors.grey,
+              child: const Text(
+                'Elements',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            ),
+            elements: [
+              button,
+              heading,
+            ]),
       ],
     ),
   );
