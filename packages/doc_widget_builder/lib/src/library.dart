@@ -128,10 +128,6 @@ String? getDefaultValue(ParameterElement param) {
       (defaultComputedValue?.isNull == true ||
           defaultComputedValueCode != null);
 
-  print(
-    'paramToString: $paramToString, paramIsString: $paramIsString, defaultValueCode: $defaultValueCode, defaultComputedValue: $defaultComputedValue, defaultComputedValueCode: $defaultComputedValueCode',
-  );
-
   if (paramIsString) {
     final trimmedValueCode = {'\"', '\''}.contains(defaultValueCode?[0])
         ? defaultValueCode!.substring(1, defaultValueCode.length - 1)
