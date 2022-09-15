@@ -33,7 +33,7 @@ class ButtonDocWidget implements Documentation {
           isRequired: false,
           isNamed: true,
           type: 'Color',
-          defaultValue: 'const Color(4278221567)',
+          defaultValue: 'const Color(0xff007aff)',
         ),
       ];
   @override
