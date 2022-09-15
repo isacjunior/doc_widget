@@ -75,3 +75,7 @@
 - add deprecation label for deprecated widgets
 - add computed default values
 - Breaking: Adds ElementsSection. Use `sections` instead of `elements` in `DocPreview`
+
+## [0.3.0] - What this solves?
+
+- Dependencies updated
