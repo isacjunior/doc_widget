@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  doc_widget_annotation: ^0.1.8
+  doc_widget_annotation: ^0.2.8
   flutter_highlight: ^0.7.0
 
 dev_dependencies:

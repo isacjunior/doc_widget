@@ -100,7 +100,7 @@ String formatSnippet(
 
 void _generateParametersRequired(StringBuffer buffer, ParameterElement param) {
   final name = param.name;
-  final isRequired = param.hasRequired || param.isNotOptional;
+  final isRequired = param.hasRequired || param.isRequired;
   final isNamed = param.isNamed;
   final type = param.type.getDisplayString(withNullability: true);
   buffer.writeln(
