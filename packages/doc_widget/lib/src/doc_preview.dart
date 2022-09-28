@@ -39,9 +39,9 @@ class _DocPreviewState extends State<DocPreview> {
     Widget renderBody() {
       return SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: Spaces.goldenDream,
-            vertical: Spaces.geraldine,
+          padding: EdgeInsets.symmetric(
+            horizontal: isMobile() ? Spacing.x4 : Spacing.x8,
+            vertical: Spacing.x4,
           ),
           child: Item(_selectedItem),
         ),
@@ -52,6 +52,7 @@ class _DocPreviewState extends State<DocPreview> {
       return DrawerCustom(
         title: widget.title,
         sections: widget.sections,
+        selectedItem: _selectedItem,
         onTap: (selectedItem) {
           setSelectedItem(selectedItem);
           if (_scaffoldKey.currentState!.isDrawerOpen && isMobile()) {

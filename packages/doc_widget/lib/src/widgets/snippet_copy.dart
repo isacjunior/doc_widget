@@ -1,4 +1,3 @@
-import 'package:doc_widget/src/widgets/copy_past_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:doc_widget/src/styles/colors.dart';
@@ -33,16 +32,17 @@ class SnippetCopy extends StatelessWidget {
         _showTooltip();
       },
       child: Padding(
-        padding: const EdgeInsets.all(Spaces.carmine),
+        padding: const EdgeInsets.all(Spacing.x2),
         child: Align(
           alignment: Alignment.topRight,
           child: Tooltip(
             key: _toolTipKey,
-            message: 'Copied',
+            message: 'Copy',
             child: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: CopyPasteIcon(
-                color: ColorsDoc.darkGray,
+              padding: EdgeInsets.all(Spacing.x4),
+              child: Icon(
+                Icons.copy_all_outlined,
+                color: ColorsDoc.neutral300,
               ),
             ),
           ),
