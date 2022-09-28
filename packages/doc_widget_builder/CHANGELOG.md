@@ -76,5 +76,5 @@
 
 - Dependencies updated
 
-## [0.3.0] Changelog
+## [0.4.0] Changelog
 - New design created
