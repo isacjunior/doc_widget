@@ -1,9 +1,26 @@
-<img src="https://i.imgur.com/syguI9x.png" />
-
+# DocWidget
 ![Build](https://github.com/isacjunior/doc_widget/workflows/Build/badge.svg)
 [![Pub](https://img.shields.io/pub/v/doc_widget)](https://pub.dev/packages/doc_widget)
 
 Do you need to create documentation that contains all information about your widgets? Don't worry, **doc_widget** will make this easier for you.
+
+<table>
+  <tr>
+    <td>Desktop/Web</td>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/12630335/192851973-2f206e33-31c7-42bd-a6e3-95b0fc0f3a23.png" /></td>
+  </tr>
+ </table>
+
+<table>
+  <tr>
+    <td>Mobile</td>
+  </tr>
+  <tr>
+    <td><img width=300 src="https://user-images.githubusercontent.com/12630335/192852382-7e960c0f-0fea-4491-81c6-de42e2d25565.png" /></td>
+  </tr>
+ </table>
 
 ## Indice
 
@@ -46,7 +63,14 @@ flutter pub run build_runner build
 - Create a `lib/doc_widget.dart` file to use the documentation code. Use `DocPreview` application in `lib/doc_widget.dart` and run this as a target file.
   `flutter run -t lib/doc_widget.dart`
 
-![Doc Widget](https://i.imgur.com/8cbkl9m.png)
+<table>
+  <tr>
+    <td>Mobile</td>
+  </tr>
+  <tr>
+    <td><img width=300 src="https://user-images.githubusercontent.com/12630335/192852382-7e960c0f-0fea-4491-81c6-de42e2d25565.png" /></td>
+  </tr>
+ </table>
 
 For more details, see [Example](https://github.com/isacjunior/doc_widget/tree/master/packages/doc_widget/example) and see [How to use](#how-to-use) for a complete guide.
 
@@ -222,13 +246,21 @@ void main() {
 
 After creating a file that contains your doc files `lib/doc_widget.dart`, you need to run the application with `lib/doc_widget.dart` as a target.
 
-If you prefer, you can run the doc_widget and host it with flutter web.
+If you prefer, you can run the doc_widget and host it with flutter web or desktop.
 
 ```shell
 flutter run -d chrome -t lib/doc_widget.dart
+flutter run -d macos -t lib/doc_widget.dart
 ```
 
-![Desktop](https://i.imgur.com/AWn2GBW.png)
+<table>
+  <tr>
+    <td>Desktop/Web</td>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/12630335/192851973-2f206e33-31c7-42bd-a6e3-95b0fc0f3a23.png" /></td>
+  </tr>
+ </table>
 
 # VSCode launch
 

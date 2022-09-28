@@ -79,3 +79,6 @@
 ## [0.3.0] - What this solves?
 
 - Dependencies updated
+
+## [0.4.0] Changelog
+- New design created
