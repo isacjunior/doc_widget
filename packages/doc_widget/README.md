@@ -238,7 +238,7 @@ void main() {
   );
 
   runApp(DocPreview(section: [ElementsSection(
-    header: Text('Buttons'),
+    title: 'Example',
     elements: [button],
   )])); // Application that will show all elements.
 }
