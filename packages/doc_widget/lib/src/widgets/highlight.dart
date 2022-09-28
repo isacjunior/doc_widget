@@ -1,3 +1,4 @@
+import 'package:doc_widget/src/styles/text.dart';
 import 'package:flutter/widgets.dart';
 import 'package:doc_widget/src/styles/colors.dart';
 import 'package:doc_widget/src/styles/spaces.dart';
@@ -21,6 +22,7 @@ class HighlightSnippet extends StatelessWidget {
           children: [
             HighlightView(
               snippet,
+              textStyle: TextDS.codeSmall,
               language: 'dart',
               theme: docsLightTheme,
               padding: const EdgeInsets.only(
