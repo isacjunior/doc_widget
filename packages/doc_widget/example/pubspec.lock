@@ -182,7 +182,7 @@ packages:
       path: "../../doc_widget_builder"
       relative: true
     source: path
-    version: "0.3.0"
+    version: "0.4.0"
   fake_async:
     dependency: transitive
     description:
