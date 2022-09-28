@@ -15,10 +15,12 @@ Do you need to create documentation that contains all information about your wid
 
 <table>
   <tr>
-    <td>Mobile</td>
+    <td>Mobile - Widget informations</td>
+    <td>Mobile - Menu</td>
   </tr>
   <tr>
     <td><img width=300 src="https://user-images.githubusercontent.com/12630335/192852382-7e960c0f-0fea-4491-81c6-de42e2d25565.png" /></td>
+    <td><img width=300 src="https://user-images.githubusercontent.com/12630335/192861907-c19a31c2-c77d-4fb1-bdc9-c08e974335a2.png" /></td>
   </tr>
  </table>
 
