@@ -48,9 +48,9 @@ class WidgetPreview {
 class ElementsSection {
   ElementsSection({
     required this.elements,
-    this.header,
+    required this.title,
   });
 
-  final Widget? header;
+  final String title;
   final List<ElementPreview> elements;
 }

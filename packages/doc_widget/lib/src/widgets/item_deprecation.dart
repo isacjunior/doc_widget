@@ -1,3 +1,6 @@
+import 'package:doc_widget/src/styles/colors.dart';
+import 'package:doc_widget/src/styles/spaces.dart';
+import 'package:doc_widget/src/styles/text.dart';
 import 'package:flutter/material.dart';
 
 class ItemDeprecation extends StatelessWidget {
@@ -7,24 +10,24 @@ class ItemDeprecation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12.0),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(22.5),
-          color: Colors.amber.withOpacity(.15),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-          child: Text(
-            'Deprecated: $message',
-            style: TextStyle(
-              color: Colors.yellow.shade900.withOpacity(.9),
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
+    return Container(
+      margin: const EdgeInsets.only(bottom: Spacing.x4),
+      padding: const EdgeInsets.all(Spacing.x4),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(Spacing.x2),
+        color: ColorsDoc.warning50,
       ),
+      child: Row(children: [
+        const Icon(
+          Icons.warning_amber_rounded,
+          color: ColorsDoc.warning500,
+        ),
+        const SizedBox(width: Spacing.x2),
+        Text(
+          'Deprecated: $message',
+          style: TextDS.bodySmall(color: ColorsDoc.warning900),
+        )
+      ]),
     );
   }
 }

@@ -13,21 +13,24 @@ class HighlightSnippet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: ColorsDoc.ghostWhite,
-      child: Stack(
-        children: [
-          HighlightView(
-            snippet,
-            language: 'dart',
-            theme: docsLightTheme,
-            padding: const EdgeInsets.only(
-              top: Spaces.dodgerBlue,
-              left: Spaces.dodgerBlue,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(Spacing.x2),
+      child: Container(
+        color: ColorsDoc.neutral50,
+        child: Stack(
+          children: [
+            HighlightView(
+              snippet,
+              language: 'dart',
+              theme: docsLightTheme,
+              padding: const EdgeInsets.only(
+                top: Spacing.x6,
+                left: Spacing.x6,
+              ),
             ),
-          ),
-          SnippetCopy(snippet),
-        ],
+            SnippetCopy(snippet),
+          ],
+        ),
       ),
     );
   }

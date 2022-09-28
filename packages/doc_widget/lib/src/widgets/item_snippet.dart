@@ -8,15 +8,15 @@ class ItemSnippet extends StatelessWidget {
   final String snippet;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: Spaces.goldenDream),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextPreview(text: 'Snippet'),
-          HighlightSnippet(snippet),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: Spacing.x8),
+        TextPreview(text: 'How to use'),
+        const SizedBox(height: Spacing.x4),
+        HighlightSnippet(snippet),
+        const SizedBox(height: Spacing.x8),
+      ],
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:doc_widget/src/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../styles/text.dart';
 
 class AppBarCustom extends StatelessWidget {
   const AppBarCustom({required this.title});
@@ -13,8 +14,8 @@ class AppBarCustom extends StatelessWidget {
         builder: (BuildContext context) {
           return IconButton(
             icon: const Icon(
-              Icons.menu,
-              color: ColorsDoc.darkGray,
+              Icons.menu_outlined,
+              color: ColorsDoc.neutral300,
             ),
             onPressed: Scaffold.of(context).openDrawer,
           );
@@ -23,12 +24,12 @@ class AppBarCustom extends StatelessWidget {
       centerTitle: false,
       title: Text(
         title,
-        style: const TextStyle(color: ColorsDoc.darkSlateGray),
+        style: TextDS.heading4,
       ),
       backgroundColor: ColorsDoc.white,
-      elevation: 2,
+      elevation: 1,
       systemOverlayStyle: SystemUiOverlayStyle.light,
-      shadowColor: ColorsDoc.ghostWhite,
+      shadowColor: ColorsDoc.white,
     );
   }
 }
