@@ -22,7 +22,7 @@ class DrawerCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      elevation: 0.0,
+      elevation: 2.0,
       backgroundColor: ColorsDoc.white,
       child: ListView(
         physics: const ClampingScrollPhysics(),
@@ -87,9 +87,12 @@ class DrawerSection extends StatelessWidget {
               title: section.elements[index].document.name,
             ),
           ),
-          const Divider(
-            height: 1,
-            color: ColorsDoc.border,
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: Spacing.x2),
+            child: Divider(
+              height: 1,
+              color: ColorsDoc.border,
+            ),
           ),
         ],
       ),
